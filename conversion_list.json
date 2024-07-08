@@ -1,0 +1,14 @@
+{
+    "markdown_folder": "md",
+    "convert_without_issues_folder": "yml",
+    "convert_with_issues_folder": "temp_yml_issues",
+    "convert_without_issues": [
+        "example"
+    ],
+    "convert_with_issues": [
+
+    ],
+    "ignore": [
+        "index"
+    ]
+}

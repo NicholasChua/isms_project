@@ -1,0 +1,27 @@
+site_name: ISMS Site
+site_url: http://127.0.0.1:8000/
+docs_dir: ../md
+
+theme: 
+  name: material
+  language: en
+  palette:
+    scheme: slate
+    primary: black
+    accent: deep-orange
+
+plugins:
+    - search
+    - mermaid2
+    - tags
+    - offline
+
+markdown_extensions:
+  - pymdownx.superfences:
+        # make exceptions to highlighting of code:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid_custom
+  - pymdownx.tasklist:
+      custom_checkbox: true
