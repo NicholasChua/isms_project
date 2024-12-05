@@ -1,17 +1,8 @@
-from typing import Any
 from fastapi import HTTPException, APIRouter
-import sys
 import os
 import glob
 from concurrent.futures import ThreadPoolExecutor
-
-# Add the 'lib' directory to the system path
-current_dir = os.path.dirname(__file__)
-common_dir = os.path.join(current_dir, '..', '..', 'common')
-sys.path.append(os.path.abspath(common_dir))
-
-# Internal imports
-from documentHandler import read_yaml_file, DocumentType
+from common.helper_functions import read_yaml_file, DocumentType
 
 
 def document_tupleize(input_file: str) -> tuple[str, dict[str, DocumentType]]:
@@ -78,23 +69,20 @@ def check_document_loaded(document_name: str, loaded_documents: dict) -> Documen
 # Create an APIRouter instance
 router = APIRouter()
 
-# Define the yml directory path
-yml_directory = os.path.join(current_dir, "..", "..", "yml")
-
-# Load all YAML files in ../../yml directory
-loaded_documents = populate_loaded_documents(yml_directory)
+# Load all YAML files in /yml directory
+loaded_documents = populate_loaded_documents("yml")
 
 
 # Define the API routes
 @router.get("/")
-async def get_document_list() -> list[str]:
+async def get_documents() -> list[str]:
     """Retrieve the list of documents that have been loaded.
 
     Returns:
-    - 200 OK | A list of the names of the documents that have been loaded.
+        200 OK | A list of the names of the documents that have been loaded.
 
     Raises:
-    - 500 Internal Server Error | HTTPException with status code 500 if an unexpected error occurs.
+        500 Internal Server Error | HTTPException with status code 500 if an unexpected error occurs.
     """
     try:
         return list(loaded_documents.keys())
@@ -110,13 +98,13 @@ async def get_document_content(document: str) -> dict:
     """Retrieve the content of a document.
 
     Parameters:
-    - document: The name of the document to retrieve.
+        document: The name of the document to retrieve.
 
     Returns:
-    - 200 OK | The content of the document if it is already loaded.
+        200 OK | The content of the document if it is already loaded.
 
     Raises:
-    - 404 Not Found | HTTPException with status code 404 if the document is not found.
+        404 Not Found | HTTPException with status code 404 if the document is not found.
     """
     document_content = check_document_loaded(document, loaded_documents)
     return document_content
@@ -124,101 +112,59 @@ async def get_document_content(document: str) -> dict:
 
 @router.get("/{document}/sections")
 async def get_document_content_sections(document: str) -> list[str]:
-    """Retrieve the sections of a document.
-    This should be standardized across all documents, so this function is meant as a helper to list the sections.
+    """Retrieve the sections of a document. This should be standardized across all documents, so this function is meant as a helper to list the sections.
 
     Parameters:
-    - document: The name of the document to retrieve sections from.
+        document: The name of the document to retrieve sections from.
 
     Returns:
-    - 200 OK | The sections of the document if it is already loaded.
+        200 OK | The sections of the document if it is already loaded.
 
     Raises:
-    - 404 Not Found | HTTPException with status code 404 if the document is not found.
+        404 Not Found | HTTPException with status code 404 if the document is not found.
     """
     document_content = check_document_loaded(document, loaded_documents)
     # Get the keys of the document content (sections)
     sections = list(document_content.keys())
-    # Inject "metadata" as the 7th element in the sections list
-    sections.insert(6, "metadata")
-    # Inject "document_control" as the 11th element in the sections list (after inserting "metadata")
-    sections.insert(10, "document_control")
+    # Inject "metadata" as the 5th element in the sections list
+    sections.insert(4, "metadata")
+    # Inject "document_control" as the 8th element in the sections list (after inserting "metadata")
+    sections.insert(7, "document_control")
     return sections
 
 
-@router.get("/{document}/metadata")
-async def get_document_content_metadata(document: str) -> dict[str, str]:
-    """Retrieve the header and footer items (metadata) of a document.
-
-    Parameters:
-    - document: The name of the document to retrieve metadata from.
-
-    Returns:
-    - 200 OK | The metadata of the document if it is already loaded.
-
-    Raises:
-    - 404 Not Found | HTTPException with status code 404 if the document is not found.
-    """
-    content = check_document_loaded(document, loaded_documents)
-    metadata = {
-        "document_type": content["type"],
-        "document_no": content["document_no"],
-        "effective_date": content["effective_date"],
-        "document_rev": content["document_rev"],
-        "title": content["title"],
-        "document_code": content["document_code"],
-    }
-    return metadata
-
-
-# Return the document control (content of the revision_history, prepared_by, reviewed_approved_by) in the {document}.yml file
-@router.get("/{document}/document_control")
-async def get_document_document_control(
-    document: str,
-) -> dict[str, list[dict[str, str]]]:
-    """Retrieve the document control items (revision history, prepared by, reviewed and approved by) of a document.
-
-    Parameters:
-    - document: The name of the document to retrieve document control items from.
-
-    Returns:
-    - 200 OK | The document control items of the document if it is already loaded.
-
-    Raises:
-    - 404 Not Found | HTTPException with status code 404 if the document is not found.
-    """
-    content = check_document_loaded(document, loaded_documents)
-    document_control = {
-        "revision_history": content["revision_history"],
-        "prepared_by": content["prepared_by"],
-        "reviewed_approved_by": content["reviewed_approved_by"],
-    }
-    return document_control
-
-
-# Get the content of a specific section in the example.yml file
-@router.get("/{document}/{section}")
+@router.get("/{document}/sections/{section}")
 async def get_document_content_section(
     document: str, section: str
-) -> (
-    str
-    | list[dict[str, str] | str]
-    | dict[str, list[dict[str, list[str]] | str] | str]
-    | Any # Catch-all in case I missed a type in the above
-):
+) -> str | list | dict:
     """Retrieve the content of a specific section in a document.
 
     Parameters:
-    - document: The name of the document to retrieve the section from.
-    - section: The name of the section to retrieve.
+        document: The name of the document to retrieve the section from.
+        section: The name of the section to retrieve.
 
     Returns:
-    - 200 OK | The content of the specified section if it exists in the document.
+        200 OK | The content of the specified section if it exists in the document.
 
     Raises:
-    - 404 Not Found | HTTPException with status code 404 if the document or section is not found.
+        404 Not Found | HTTPException with status code 404 if the document or section is not found.
     """
     content = check_document_loaded(document, loaded_documents)
+
+    if section == "metadata":
+        return {
+            "document_type": content["document_type"],
+            "document_no": content["document_no"],
+            "document_rev": content["document_rev"],
+            "title": content["title"],
+        }
+    
+    if section == "document_control":
+        return {
+            "revision_history": content["revision_history"],
+            "document_review_and_approval": content["document_review_and_approval"],
+        }
+
     if section not in content:
         raise HTTPException(
             status_code=404,

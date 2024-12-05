@@ -1,33 +1,24 @@
 ---
-foam_template:
-  filepath: 'md/$FOAM_TITLE.md'
-document_type: policy
+document_type: ${TM_FILENAME_BASE/^.*[\s_]([A-Za-z])([A-Za-z]+)$/${1:/downcase}$2/}
 document_no: NoNum
-document_code: NoCode
-effective_date: 12-MAY-2023
-document_revision: "00"
-title: Title Policy
+document_rev: 00
+title: ${1:${TM_FILENAME_BASE/^\d{2}_(.*)/$1/}}
 ---
 
-# ${1:$TM_FILENAME_BASE}
+# ${1:${TM_FILENAME_BASE/^\d{2}_(.*)/$1/}}
 
 ## Revision History
 
-| Revision No | Description of Changes | Effective Date |
-|-------------|------------------------|----------------|
-| 00          | Initial release        | 12-MAY-2023    |
+| Revision No | Description of Changes | Document Submission Date (DD-MMM-YYYY) |
+| ----------- | ---------------------- | -------------------------------------- |
+| 00          | Initial release        | 12-MAY-2023                            |
 
-## Prepared By
+## Document Review and Approval
 
-| Name | Title |
-|------|-------|
-| Nicholas Chua | Intern |
-
-## Reviewed And Approved By
-
-| Name | Title |
-|------|-------|
-| Low Tzewen | Snr IT Engineer |
+| Actions                  | Designation | Names  |
+| ------------------------ | ----------- | ------ |
+| Originator               | Originator  | Me     |
+| Reviewed and approved by | Approver    | Not Me |
 
 ## Purpose
 

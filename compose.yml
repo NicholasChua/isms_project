@@ -1,0 +1,18 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # For development, uncomment the below lines for local port access only
+    ports:
+      - "8000:8000"  # MkDocs
+      - "8080:8080"  # FastAPI
+    # For production, uncomment the below lines for external port access
+    # ports:
+    #   - "0.0.0.0:8000:8000"  # MkDocs
+    #   - "0.0.0.0:8080:8080"  # FastAPI
+    # volumes:
+    #   - ./docs:/app/docs  # Mount docs for live updates
+    #   - ./yml:/app/yml    # Mount yml output directory
+    #   - ./docx_docs:/app/docx_docs  # Mount docx output directory
+    restart: unless-stopped

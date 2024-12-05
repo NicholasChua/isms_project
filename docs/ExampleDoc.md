@@ -1,51 +1,45 @@
 ---
-document_type: EXAMPLE DOCUMENT
-document_no: EXP-00-000
-effective_date: 01-JAN-1970
-document_revision: 00
-title: Example Document
-document_code: EX00-000-00
+document_type: ExampleDoc
+document_no: EX01-100
+document_rev: 00
+title: ExampleDoc
 ---
 
-# Example Document
+# ExampleDoc
 
 ## Revision History
 
-| Revision No. | Description of Changes | Effective Date |
-| --- | --- | --- |
-| 00 | Initial Release | 01-JAN-1970 |
+| Revision No | Description of Changes | Document Submission Date (DD-MMM-YYYY) |
+| ----------- | ---------------------- | -------------------------------------- |
+| 00          | Initial release        | 12-MAY-2023                            |
+| 01          | 1. Test<br>2. Two      | 12-JUN-2023                            |
 
-## Prepared by:
+## Document Review and Approval
 
-| Name | Title | Signature | Date |
-| --- | --- | --- | --- |
-| Nicholas Chua | Preparer |  |  |
+| Actions                  | Designation | Names  |
+| ------------------------ | ----------- | ------ |
+| Originator               | Me          | Me     |
+| Reviewed and approved by | Not Me      | Not Me |
 
-## Reviewed and Approved by:
-
-| Name | Title | Signature | Date |
-| --- | --- | --- | --- |
-| Not Nicholas Chua | Approver |  |  |
-
-### Purpose
+## Purpose
 
 - Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-### Scope
+## Scope
 
 - Lorem ipsum dolor sit amet.
 
-### Responsibility
+## Responsibility
 
 - Lorem ipsum,
 - dolor sit amet.
 
-### Definition
+## Definition
 
 - Lorem: ipsum,
 - Dolor: sit amet.
 
-### Procedure
+## Procedure
 
 - Example Policy
     - Lorem ipsum dolor sit amet:
@@ -54,11 +48,12 @@ document_code: EX00-000-00
         - Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         - Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     - This is a very very very very long multi-line comment line 1.  
-This is a very very very very long multi-line comment line 2.
+This is a very very very very long multi-line comment line 2.  
+This is a very very very very long multi-line comment line 3:
         - This is a sub-item of the multi-line comment.
     - Lorem ipsum dolor sit.
 - Another Policy
-    - I have 9 items:
+    - I have 9 sub items:
         - Item 1.
         - Item 2.
         - Item 3.
@@ -68,11 +63,14 @@ This is a very very very very long multi-line comment line 2.
         - Item 7.
         - Item 8.
         - Item 9.
+- New Policy
+    - Item 1.
+    - Item 2.
 
-### Reference
+## Reference
 
 - N/A
 
-### Attachment
+## Attachment
 
 - N/A

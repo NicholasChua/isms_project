@@ -1,6 +1,5 @@
 site_name: ISMS Site
 site_url: http://127.0.0.1:8000/
-docs_dir: ../md
 
 theme: 
   name: material

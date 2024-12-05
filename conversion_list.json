@@ -1,12 +1,17 @@
 {
-    "markdown_folder": "md",
-    "convert_without_issues_folder": "yml",
-    "convert_with_issues_folder": "temp_yml_issues",
-    "convert_without_issues": [
-        "example"
+    "markdown_folder": "docs",
+    "yml_folder": "yml",
+    "temp_yml_folder": "temp_yml",
+    "docx_folder": "docx_docs",
+    "yml_convert_without_issues": [
+        "ExampleDoc"
     ],
-    "convert_with_issues": [
-
+    "yml_convert_with_issues": [
+    ],
+    "docx_standard_convert": [
+        "ExampleDoc"
+    ],
+    "docx_special_convert": [
     ],
     "ignore": [
         "index"

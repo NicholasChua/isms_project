@@ -1,12 +1,10 @@
 from fastapi import APIRouter
 from fastapi.responses import RedirectResponse
 
-# Create an APIRouter instance
 router = APIRouter()
 
-# Define the API routes
 @router.get("/")
-async def root():
+async def root() -> dict:
     return {"message": "Hello World"}
 
 
@@ -18,4 +16,3 @@ async def get_api_info() -> RedirectResponse:
     - 301 Moved Permanently | Link to the API documentation page.
     """
     return RedirectResponse(url="/docs", status_code=301)
-

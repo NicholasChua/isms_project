@@ -163,3 +163,6 @@ cython_debug/
 
 # Project
 .vscode/
+temp_yml/*.yml
+yml/*.yml
+docx_docs/*.docx
