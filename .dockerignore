@@ -1,0 +1,49 @@
+# Python virtual environment
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.py[cod]
+*$py.class
+
+# Development and IDE files
+.git/
+.gitignore
+.vscode/
+.idea/
+*.swp
+.DS_Store
+.env.local
+.env.*.local
+.foam/
+
+# Generated documentation
+site/
+
+# Generated files (these are created during build)
+yml/*
+!yml/README.md
+docx_docs/*
+!docx_docs/README.md
+temp_yml/*
+!temp_yml/README.md
+
+# Test files and cache
+.pytest_cache/
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+
+# Documentation and license files
+example/
+README.md
+LICENSE
+
+# Docker files (not needed inside container)
+Dockerfile
+compose.yml
+.dockerignore
