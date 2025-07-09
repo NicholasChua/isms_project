@@ -48,7 +48,7 @@ pathspec==0.12.1
 pillow==11.1.0
 platformdirs==4.3.6
 pydantic==2.10.6
-pydantic_core==2.27.2
+pydantic_core==2.35.2
 Pygments==2.19.1
 pymdown-extensions==10.14.3
 pyparsing==3.2.1
