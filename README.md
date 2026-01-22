@@ -142,7 +142,7 @@ VALID_DOCSITE_API_TOKEN=<Self-defined API Password>
 
 2. **Optional: Not functional in this repository.** Replace `<XDR API Key>` with your XDR's API Key. This is used to authenticate requests to the Generic XDR server. This key should be generated in the XDR console and should have the necessary permissions to access the required information.
 
-3. The `<Self-defined API Password>` is a token that is used to authenticate requests to the Deep Security audit endpoints. This is to prevent unauthorized access to the audit server. The token can be any string, but it is recommended to use a long, random string. This token is used in the X-API-Key header of the request to the audit server. This token should be set by the user (IT Admin) and should be kept secure.
+3. The `<Self-defined API Password>` is a token that is used to authenticate requests to the Generic XDR audit endpoints. This is to prevent unauthorized access to the audit server. The token can be any string, but it is recommended to use a long, random string. This token is used in the X-API-Key header of the request to the audit server. This token should be set by the user (IT Admin) and should be kept secure.
 
 4. Ensure that the .env file is in the root directory of the project.
 
@@ -212,8 +212,8 @@ The API endpoint provides the following routes:
   - `v1/documents/{document}/sections`: Get the sections of a specific document, based on the document title.
   - `v1/documents/{document}/sections/{section}`: Retrieve only a specific section of a specific document.
 - `/v1/audit`: Audit capabilities for Generic XDR. Requires an API key. Not functional in this repository, here for demonstration purposes only.
-  - `v1/audit/xdr`: Get information about auditing capabilities for Deep Security.
-  - `v1/audit/xdr/generic-route`: Generic route for auditing capabilities for Deep Security.
+  - `v1/audit/xdr`: Get information about auditing capabilities for Generic XDR.
+  - `v1/audit/xdr/generic-route`: Generic route for auditing capabilities for Generic XDR.
 - `/v1/risk`
   - `v1/risk/before-after`: Perform a before-and-after risk analysis, using a choice of Monte Carlo or Markov Chain Monte Carlo simulations.
   - `v1/risk/rqmc-sequence-analysis`: Given known asset values but other uncertain values, and a number of controls to be implemented at 1 a year, determine the optimal sequence of controls to implement.
