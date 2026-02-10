@@ -29,7 +29,7 @@ Jinja2==3.1.6
 jsbeautifier==1.15.4
 kiwisolver==1.4.9
 lxml==6.0.2
-Markdown==3.10.1
+Markdown==3.10.2
 markdown-it-py==4.0.0
 MarkupSafe==3.0.3
 matplotlib==3.10.8
