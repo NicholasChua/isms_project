@@ -51,7 +51,7 @@ platformdirs==4.5.1
 pydantic==2.12.5
 pydantic_core==2.41.5
 Pygments==2.19.2
-pymdown-extensions==10.20.1
+pymdown-extensions==10.21
 pyparsing==3.3.2
 python-dateutil==2.9.0.post0
 python-docx==1.2.0
