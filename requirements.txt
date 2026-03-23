@@ -16,7 +16,7 @@ docxcompose==2.0.2
 docxtpl==0.20.2
 EditorConfig==0.17.1
 email-validator==2.3.0
-fastapi==0.135.1
+fastapi==0.135.2
 fastapi-cli==0.0.24
 fonttools==4.62.1
 ghp-import==2.1.0
