@@ -47,7 +47,7 @@ paginate==0.5.7
 pandas==3.0.3
 pathspec==1.1.1
 pillow==12.2.0
-platformdirs==4.10.0
+platformdirs==4.10.1
 pydantic==2.13.4
 pydantic_core==2.46.4
 Pygments==2.20.0
