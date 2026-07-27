@@ -44,7 +44,7 @@ multiprocess==0.70.19
 numpy==2.5.1
 packaging==26.2
 paginate==0.5.7
-pandas==3.0.3
+pandas==3.0.5
 pathspec==1.1.1
 pillow==12.3.0
 platformdirs==4.10.1
