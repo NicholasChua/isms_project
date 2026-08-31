@@ -65,7 +65,7 @@ requests==2.34.2
 rich==15.0.0
 rich-toolkit==0.20.3
 SALib==1.5.2
-scipy==1.18.0
+scipy==1.18.1
 setuptools==84.0.0
 shellingham==1.5.4
 six==1.17.0
