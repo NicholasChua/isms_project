@@ -28,7 +28,7 @@ idna==3.18
 Jinja2==3.1.6
 jsbeautifier==2.0.3
 kiwisolver==1.5.0
-lxml==6.1.1
+lxml==6.1.2
 Markdown==3.10.3
 markdown-it-py==4.2.0
 MarkupSafe==3.0.3
