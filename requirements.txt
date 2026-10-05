@@ -64,7 +64,7 @@ regex==2026.7.19
 requests==2.34.2
 rich==15.0.0
 rich-toolkit==0.20.3
-SALib==1.5.2
+SALib==1.6.0
 scipy==1.18.1
 setuptools==84.0.0
 shellingham==1.5.4
