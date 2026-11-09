@@ -54,7 +54,7 @@ pydantic_core==2.50.1
 Pygments==2.21.0
 pymdown-extensions==12.3
 pyparsing==3.3.3
-python-dateutil==3.0.0
+python-dateutil==4.0.0
 python-docx==1.2.0
 python-dotenv==1.2.4
 python-multipart==0.0.32
