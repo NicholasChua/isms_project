@@ -61,7 +61,7 @@ python-multipart==0.0.32
 pytz==2026.5
 PyYAML==6.0.3
 pyyaml_env_tag==1.1
-regex==2026.9.29
+regex==2026.11.7
 requests==2.34.2
 rich==15.0.0
 rich-toolkit==0.20.6
